@@ -28,7 +28,7 @@ export default function List() {
         width={100} /* Set width to 100px for a reasonable image size */
         height={100}
       />
-      <p>{person.name}</p> {/* Optionally display person's name */}
+      <p>{person.name}</p> {/* Optionally display person's name(s) */}
     </li>
   ));
   return <ul>{listItems}</ul>;
