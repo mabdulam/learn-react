@@ -1,8 +1,13 @@
-export default function Profile() {
+import React from 'react';
+import Profile from '@/pages/qcomps/profile_mistake';
+import MyComp from '@/pages/qcomps/firstcomp';
+
+export default function Home() {
   return (
-  <img
-      src="https://i.imgur.com/MK3eW3Am.jpg"
-      alt="Katherine Johnson"
-    />
-  )
+    <div>
+      <Profile />
+      <MyComp />
+    </div>
+  );
 }
+
