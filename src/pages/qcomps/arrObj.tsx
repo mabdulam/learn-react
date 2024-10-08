@@ -9,27 +9,26 @@ const initialList = [
 ];
 
 export default function BucketList() {
-  const [myList, setMyList] = useState(initialList);
-  const [yourList, setYourList] = useState(
-    initialList
-  );
+  // Create independent copies of the initial list for myList and yourList
+  const [myList, setMyList] = useState(initialList.map(artwork => ({ ...artwork })));
+  const [yourList, setYourList] = useState(initialList.map(artwork => ({ ...artwork })));
 
   function handleToggleMyList(artworkId: number, nextSeen: boolean) {
     const tmpList = myList.map(e => {
-        if (e.id === artworkId) {
-            e.seen = nextSeen
-        }
-        return e
+      if (e.id === artworkId) {
+        return { ...e, seen: nextSeen };  // Create a new object with updated seen value
+      }
+      return e;
     });
     setMyList(tmpList);
   }
 
   function handleToggleYourList(artworkId: number, nextSeen: boolean) {
     const tmpList = yourList.map(e => {
-        if (e.id === artworkId) {
-            e.seen = nextSeen
-        }
-        return e
+      if (e.id === artworkId) {
+        return { ...e, seen: nextSeen };  // Create a new object with updated seen value
+      }
+      return e;
     });
     setYourList(tmpList);
   }
@@ -72,3 +71,4 @@ function ItemList({ artworks, onToggle }: ItemListProps) {
     </ul>
   );
 }
+
